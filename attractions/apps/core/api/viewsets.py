@@ -1,4 +1,5 @@
 from rest_framework.response import Response
+from rest_framework.decorators import action
 from rest_framework.viewsets import ModelViewSet
 from ..models import TouristSpot
 from .serializers import TouristSpotSerializer
@@ -34,4 +35,11 @@ class TouristSpotViewSet(ModelViewSet):
     # Sempre que for chamado o patch, podemos reescrever com esse método
     def partial_update(self, request, *args, **kwargs):
         return Response({'Partial Update': request.data['name']})
+    """
+    """
+    # Usamos isso para criar ações personalizadas, 
+    # colocando a ação depois do ID como localhost:8000/tourist-spots/1/report
+    @action(methods=['get'], detail=True)
+    def report(self, request, pk=None):
+        pass
     """
