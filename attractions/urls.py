@@ -8,6 +8,7 @@ from attractions.apps.attraction.api.viewsets import AttractionViewSet
 from attractions.apps.addresses.api.viewsets import AddressesViewSet
 from attractions.apps.comments.api.viewsets import CommentViewSet
 from attractions.apps.assessments.api.viewsets import AssessmentViewSet
+from rest_framework.authtoken.views import obtain_auth_token
 
 
 router = routers.DefaultRouter()
@@ -20,4 +21,5 @@ router.register(r'assessments', viewset=AssessmentViewSet)
 urlpatterns = [
     path('', include(router.urls)),
     path('admin/', admin.site.urls),
+    path('api-token-auth/', obtain_auth_token),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
