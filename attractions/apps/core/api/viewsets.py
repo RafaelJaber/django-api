@@ -10,7 +10,7 @@ class TouristSpotViewSet(ModelViewSet):
 
     def get_queryset(self):
         return TouristSpot.objects.filter(status=True)
-
+    """
     # Sempre que fizer um get na aplicação, será disparado esse método list, onde pode se reescrever o comportamento da aplicação
     def list(self, request, *args, **kwargs):
         return Response({'teste': 123})
@@ -34,3 +34,4 @@ class TouristSpotViewSet(ModelViewSet):
     # Sempre que for chamado o patch, podemos reescrever com esse método
     def partial_update(self, request, *args, **kwargs):
         return Response({'Partial Update': request.data['name']})
+    """
