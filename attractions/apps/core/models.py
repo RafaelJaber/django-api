@@ -17,7 +17,7 @@ class TouristSpot(models.Model):
     def __str__(self):
         return self.name
 
-    class Meta():
+    class Meta:
         verbose_name = 'Ponto Turístico'
         verbose_name_plural = 'Pontos Turísticos'
         ordering = ['name']
