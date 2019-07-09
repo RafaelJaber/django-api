@@ -13,6 +13,7 @@ class TouristSpot(models.Model):
     comment = models.ManyToManyField(Comment, verbose_name='Comentários', blank=True)
     assessment = models.ManyToManyField(Assessment, verbose_name='Avaliações', blank=True)
     address = models.ForeignKey(Address, verbose_name='Endereço', on_delete=models.CASCADE, blank=True, null=True)
+    photo = models.ImageField(upload_to='spots', null=True, blank=True)
 
     def __str__(self):
         return self.name

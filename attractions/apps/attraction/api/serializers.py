@@ -6,5 +6,5 @@ class AttractionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Attraction
         fields = (
-            'id', 'name', 'description', 'operating_hours', 'minimum_age'
+            'id', 'name', 'description', 'operating_hours', 'minimum_age', 'photo'
         )

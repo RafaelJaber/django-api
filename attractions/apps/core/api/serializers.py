@@ -5,4 +5,4 @@ from ..models import TouristSpot
 class TouristSpotSerializer(serializers.ModelSerializer):
     class Meta:
         model = TouristSpot
-        fields = ('id', 'name', 'description', 'status')
+        fields = ('id', 'name', 'description', 'status', 'photo')
