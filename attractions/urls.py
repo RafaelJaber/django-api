@@ -9,7 +9,7 @@ from attractions.apps.assessments.api.viewsets import AssessmentViewSet
 
 
 router = routers.DefaultRouter()
-router.register(r'tourist-spots', viewset=TouristSpotViewSet)
+router.register(r'tourist-spots', viewset=TouristSpotViewSet, base_name='TouristSpot')
 router.register(r'attractions', viewset=AttractionViewSet)
 router.register(r'addresses', viewset=AddressesViewSet)
 router.register(r'comments', viewset=CommentViewSet)
