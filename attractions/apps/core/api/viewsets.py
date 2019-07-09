@@ -10,7 +10,21 @@ class TouristSpotViewSet(ModelViewSet):
     serializer_class = TouristSpotSerializer
 
     def get_queryset(self):
-        return TouristSpot.objects.filter(status=True)
+        id = self.request.query_params.get('id', None)
+        name = self.request.query_params.get('name', None)
+        description = self.request.query_params.get('description', None)
+
+        queryset = TouristSpot.objects.all()
+
+        if id:
+            queryset = TouristSpot.objects.filter(pk=id)
+        elif name:
+            queryset = TouristSpot.objects.filter(name__icontains=name)
+        elif description:
+            queryset = TouristSpot.objects.filter(description__icontains=description)
+
+        return queryset
+
     """
     # Sempre que fizer um get na aplicação, será disparado esse método list, onde pode se reescrever o comportamento da aplicação
     def list(self, request, *args, **kwargs):
@@ -43,3 +57,4 @@ class TouristSpotViewSet(ModelViewSet):
     def report(self, request, pk=None):
         pass
     """
+
