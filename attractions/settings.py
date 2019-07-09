@@ -39,7 +39,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'attractions.apps.core',
-    'attractions.apps.attraction'
+    'attractions.apps.attraction',
+    'attractions.apps.comments',
+    'attractions.apps.assessments',
+    'attractions.apps.addresses'
 ]
 
 MIDDLEWARE = [

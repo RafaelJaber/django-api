@@ -1,5 +1,8 @@
 from django.db import models
 from attractions.apps.attraction.models import Attraction
+from attractions.apps.comments.models import Comment
+from attractions.apps.assessments.models import Assessment
+from attractions.apps.addresses.models import Address
 
 
 class TouristSpot(models.Model):
@@ -7,6 +10,9 @@ class TouristSpot(models.Model):
     description = models.TextField(verbose_name='Descrição')
     status = models.BooleanField(verbose_name='Aprovado', default=False)
     attractions = models.ManyToManyField(Attraction, verbose_name='Atrações')
+    comment = models.ManyToManyField(Comment, verbose_name='Comentários')
+    assessment = models.ManyToManyField(Assessment, verbose_name='Avaliações')
+    address = models.ForeignKey(Address, verbose_name='Endereço', on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name
