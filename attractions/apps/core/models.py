@@ -1,7 +1,7 @@
 from django.db import models
 
 
-class Attraction(models.Model):
+class TouristSpot(models.Model):
     name = models.CharField(verbose_name='Nome', max_length=150)
     description = models.TextField(verbose_name='Descrição')
     status = models.BooleanField(verbose_name='Aprovado', default=False)
