@@ -10,9 +10,9 @@ class TouristSpot(models.Model):
     description = models.TextField(verbose_name='Descrição')
     status = models.BooleanField(verbose_name='Aprovado', default=False)
     attractions = models.ManyToManyField(Attraction, verbose_name='Atrações')
-    comment = models.ManyToManyField(Comment, verbose_name='Comentários', blank=True, null=True)
-    assessment = models.ManyToManyField(Assessment, verbose_name='Avaliações', blank=True, null=True)
-    address = models.ForeignKey(Address, verbose_name='Endereço', on_delete=models.CASCADE)
+    comment = models.ManyToManyField(Comment, verbose_name='Comentários', blank=True)
+    assessment = models.ManyToManyField(Assessment, verbose_name='Avaliações', blank=True)
+    address = models.ForeignKey(Address, verbose_name='Endereço', on_delete=models.CASCADE, blank=True, null=True)
 
     def __str__(self):
         return self.name
