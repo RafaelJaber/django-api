@@ -3,14 +3,14 @@
 from rest_framework.viewsets import ModelViewSet
 from ..models import TouristSpot
 from .serializers import TouristSpotSerializer
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated, DjangoModelPermissions
 from rest_framework.authentication import TokenAuthentication
 
 
 class TouristSpotViewSet(ModelViewSet):
 
     serializer_class = TouristSpotSerializer
-    permission_classes = (IsAuthenticated, )
+    permission_classes = (IsAuthenticated, DjangoModelPermissions)
     authentication_classes = (TokenAuthentication, )
 
     def get_queryset(self):
