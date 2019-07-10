@@ -21,7 +21,7 @@ class TouristSpotSerializer(serializers.ModelSerializer):
         fields = (
             'id', 'name', 'description', 'status', 'photo',
             'attractions', 'comment', 'assessment', 'address',
-            'full_description'
+            'full_description', 'full_description_2'
         )
 
     def get_full_description(self, obj):

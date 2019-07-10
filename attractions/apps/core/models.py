@@ -15,6 +15,10 @@ class TouristSpot(models.Model):
     address = models.ForeignKey(Address, verbose_name='Endereço', on_delete=models.CASCADE, blank=True, null=True)
     photo = models.ImageField(upload_to='spots', null=True, blank=True)
 
+    @property
+    def full_description_2(self):
+        return '%s - %s - 2' % (self.name, self.description)
+
     def __str__(self):
         return self.name
 
